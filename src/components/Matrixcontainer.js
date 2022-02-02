@@ -1,63 +1,65 @@
 import React from "react";
-var matrix_1 = {
-    vectors: [
-        {
-            x1: 5,
-            x2: 8,
-            x3: 11
-        },
-        {
-            x1: 6,
-            x2: 9,
-            x3: 1
-        },
-        {
-            x1: 7,
-            x2: 10,
-            x3: 12
-        }
-    ]
-}
+import MatrixList from "./MatrixList";
 class MatrixContainer extends React.Component {
-    state = {
-        todos: [
+    MatricesDict = {
+        matrix_list: [
             {
                 id: 1,
-                title: "Setup development environment",
+                matrix: [[1,0,0],[0,1,0],[0,0,1]],
                 checked: false
             },
             {
                 id: 2,
-                title: "Develop website add content",
+                matrix: [[4,5,6],[4,5,6],[4,5,6]],
                 checked: false
             }
         ]
     };
     render() {
+        function sqrt(x1) {
+            return x1 * x1
+        }
         return (
             <div>
-            <ul>
-                {this.state.todos.map(elem => (
-                    <li>{elem.title}</li>
-                ))}
-            </ul>
-            <table>
-                <tr>
-                    {matrix_1.vectors.map(elem => (
-                        <td>{elem.x1}</td>
-                    ))}
-                </tr>
-                <tr>
-                    {matrix_1.vectors.map(elem => (
-                        <td>{elem.x2}</td>
-                    ))}
-                </tr>
-                <tr>
-                    {matrix_1.vectors.map(elem => (
-                        <td>{elem.x3}</td>
-                    ))}
-                </tr>
-            </table>
+                {this.MatricesDict.matrix_list.map(
+                    elem => (
+                        <table>
+                            <tr>
+                                <td>
+                                {elem.matrix[0][0]}
+                                </td>
+                                <td>
+                                {elem.matrix[1][0]}
+                                </td>
+                                <td>
+                                {elem.matrix[2][0]}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                {elem.matrix[0][1]}
+                                </td>
+                                <td>
+                                {elem.matrix[1][1]}
+                                </td>
+                                <td>
+                                {elem.matrix[2][1]}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                {elem.matrix[0][2]}
+                                </td>
+                                <td>
+                                {elem.matrix[1][2]}
+                                </td>
+                                <td>
+                                {elem.matrix[2][2]}
+                                </td>
+                            </tr>
+                        </table>
+                    )
+                )}
             </div>
         )
     }
