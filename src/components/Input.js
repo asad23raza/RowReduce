@@ -1,8 +1,26 @@
 import React from "react";
-class InputNode extends React.Component {
-    state = {
-        matrices: [],
-        
-    }
+function InputNode(props) {
+    return (
+        <div>
+            <table>
+                <tbody>
+                {props.elem.matrix.map(
+                    row => (
+                        <tr >
+                            {row.map(
+                                subentry => (
+                                    <td>                                                    
+                                        {subentry}
+                                    </td>
+                                )
+                            )}
+                        </tr>
+                    )
+                )}
+                </tbody>
+            </table>
+        </div>
+    )
+
 }
 export default InputNode
