@@ -1,26 +1,29 @@
 import React from "react";
-function InputNode(props) {
-    return (
-        <div>
-            <table>
-                <tbody>
-                {props.elem.matrix.map(
-                    row => (
-                        <tr >
-                            {row.map(
-                                subentry => (
-                                    <td>                                                    
-                                        {subentry}
-                                    </td>
-                                )
-                            )}
-                        </tr>
-                    )
-                )}
-                </tbody>
-            </table>
-        </div>
-    )
-
+class InputNode extends React.Component {
+    render() {
+        return (
+            <div>
+                <table>
+                    <tbody>
+                    {this.props.matrix_list_elem.matrix.map(
+                        row => (
+                            <tr >
+                                {row.map(
+                                    subentry => (
+                                        <td>                                                    
+                                            {subentry}
+                                        </td>
+                                    )
+                                )}
+                            </tr>
+                        )
+                    )}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
 }
+
+
 export default InputNode
