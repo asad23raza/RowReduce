@@ -6,11 +6,11 @@ class InputNode extends React.Component {
                 <table>
                     <tbody>
                     {this.props.matrix_list_elem.matrix.map(
-                        row => (
-                            <tr >
+                        (row,index) => (
+                            <tr key={index} >
                                 {row.map(
-                                    subentry => (
-                                        <td>                                                    
+                                    (subentry,index) => (
+                                        <td key={index}>                                                    
                                             {subentry}
                                         </td>
                                     )

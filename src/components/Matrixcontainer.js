@@ -22,7 +22,16 @@ class MatrixContainer extends React.Component {
         ]
     };
     DelMatrix = () => {
-        console.log("deleted");
+        console.log("deleted " + this.MatricesDict.matrix_list.length)
+        this.setState({
+            matrix_list: [
+                ...this.MatricesDict.matrix_list.filter(
+                    elem => {
+                        return elem.id === 1;
+                    }
+                )
+            ] 
+        })
     }
     render() {
         return (
