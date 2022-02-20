@@ -24,14 +24,9 @@ class MatrixContainer extends React.Component {
     DelMatrix = () => {
         console.log("deleted " + this.MatricesDict.matrix_list.length)
         this.setState({
-            matrix_list: [
-                ...this.MatricesDict.matrix_list.filter(
-                    elem => {
-                        return elem.id === 1;
-                    }
-                )
-            ] 
+            ...this.MatricesDict.matrix_list.pop()
         })
+        console.log("afterdeletion" + this.MatricesDict.matrix_list.length)
     }
     render() {
         return (
