@@ -21,16 +21,11 @@ class MatrixContainer extends React.Component {
             }
         ]
     };
-    HandleChange = (number) => {
-        console.log(number);
-        console.log("clicked me", number);
-    };
     render() {
         return (
             <div>
                 <Header />
-                <MatrixList matrix_list={this.MatricesDict.matrix_list}
-                HandleChange = {this.HandleChange} />
+                <MatrixList matrix_list={this.MatricesDict.matrix_list} />
             </div>
         )
     }
