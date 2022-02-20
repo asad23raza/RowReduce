@@ -6,7 +6,7 @@ class MatrixContainer extends React.Component {
         matrix_list: [
             {
                 id: 1,
-                matrix: [[1,37,1],[0,1,0],[0,0,1]],
+                matrix: [[1,35,1],[0,1,0],[0,0,1]],
                 completed: true
             },
             {
@@ -21,11 +21,15 @@ class MatrixContainer extends React.Component {
             }
         ]
     };
+    DelMatrix = () => {
+        console.log("deleted");
+    }
     render() {
         return (
             <div>
                 <Header />
-                <MatrixList matrix_list={this.MatricesDict.matrix_list} />
+                <MatrixList matrix_list={this.MatricesDict.matrix_list}
+                DelMatrix = {this.DelMatrix} />
             </div>
         )
     }

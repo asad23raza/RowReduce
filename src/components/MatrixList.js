@@ -13,7 +13,7 @@ class MatrixList extends React.Component {
                 elem => (
                     <div key={elem.id}>
                         <InputNode matrix_list_elem={elem} />
-                        <MatrixButtons pos={elem.id} maximum={max} />
+                        <MatrixButtons pos={elem.id} maximum={max} DelMatrix={this.props.DelMatrix} />
                     </div>
                 )
             )}
