@@ -7,36 +7,13 @@ class MatrixList extends React.Component {
             {this.props.matrix_list.map(
                 elem => (
                     <div key={elem.id}>
+                        <input type="checkbox" checked={elem.completed} 
+                        onChange={() => this.props.HandleChange(elem.id)} />
                         <InputNode matrix_list_elem={elem} />
                     </div>
                 )
             )}
-            </div>
-    //    <div>
-    //         {this.props.matrix_list.map(
-    //         elem => (
-    //                 <div key={elem.id}>
-    //                     <table>
-    //                         <tbody>
-    //                         {elem.matrix.map(
-    //                             row => (
-    //                                 <tr key={row.id}>
-    //                                     {row.map(
-    //                                         subentry => (
-    //                                             <td key={subentry.id}>
-    //                                                 {subentry}
-    //                                             </td>
-    //                                         )
-    //                                     )}
-    //                                 </tr>
-    //                             )
-    //                         )}
-    //                         </tbody>
-    //                     </table>
-    //                 </div>
-    //         )
-    //         )}
-    //     </div>     
+            </div>   
         )
     }
 }
