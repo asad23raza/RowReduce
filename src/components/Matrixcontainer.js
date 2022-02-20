@@ -1,6 +1,7 @@
 import React from "react";
 import MatrixList from "./MatrixList";
 import Header from "./Header"
+import TextField from "./EnterMatrix";
 class MatrixContainer extends React.Component {
     MatricesDict = {
         matrix_list: [
@@ -32,6 +33,7 @@ class MatrixContainer extends React.Component {
         return (
             <div>
                 <Header />
+                <TextField />
                 <MatrixList matrix_list={this.MatricesDict.matrix_list}
                 DelMatrix = {this.DelMatrix} />
             </div>
