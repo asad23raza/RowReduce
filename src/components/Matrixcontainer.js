@@ -27,7 +27,6 @@ class MatrixContainer extends React.Component {
         this.setState({
             ...this.MatricesDict.matrix_list.pop()
         })
-        console.log("afterdeletion" + this.MatricesDict.matrix_list.length)
     }
     CheckArr = (arr) => {
 
@@ -58,8 +57,20 @@ class MatrixContainer extends React.Component {
         }
         console.log("input text :" +
         InputText,"length: "+length, retarr, newarr, retarr_length)
+        // call ResetMatrix to add it
+        this.ResetMatrix(newarr)
     }
-    
+    ResetMatrix = (matrix) => {
+        var new_matrix = {
+            id: this.MatricesDict.matrix_list.length + 1,
+            matrix: matrix,
+            completed: true,
+        }
+        this.setState({
+            ...this.MatricesDict.matrix_list.push(new_matrix)
+        })
+    }
+
     render() {
         return (
             <div>
