@@ -67,7 +67,13 @@ class MatrixContainer extends React.Component {
             completed: true,
         }
         this.setState({
-            ...this.MatricesDict.matrix_list.push(new_matrix)
+            ...
+            this.MatricesDict.matrix_list = []
+            
+        })
+        this.setState({
+            ...
+            this.MatricesDict.matrix_list.push(new_matrix)
         })
     }
 
