@@ -32,20 +32,31 @@ class MatrixContainer extends React.Component {
         // make sure array only includes numbers, commas, and square brackets
         // array vectors are all equal
         // array length is greater than 2, [[1]]
-        let len = arr.length
-        if (len < 5) {
-            console.log("error 1")
-            return false
-        }         
-        let acceptable_chars = ["0","1","2","3","4","5","6","7","8","9", "]","[",","]
-        for (var i = 0; i < len; ++i) {
-            if (!acceptable_chars.includes(arr[i])) {
-                console.log("error 2: "+arr[i])
+        // Use Regular Expression
+        let regex = /^\[\[[\d,\]\[]+\]\]$/;
+        if (regex.test(arr)) {
+            try {
+                let array_of_nums = JSON.parse(arr)
+                if (array_of_nums.length > 1) {
+                    let dimension = array_of_nums[0].length
+                    for (var i = 1; i < array_of_nums.length; ++i) {
+                        if (array_of_nums[i].length !== dimension) {
+                            console.log("vectors have unequal dimension")
+                            return false;
+                        }
+                    }
+                }
+                return true
+            }
+            catch(err) {
+                console.log("invalid input")
                 return false
             }
+        } else {
+        return false
         }
-        return true
     };
+
     AddMatrix = () => {
         //console.log("add button pressed")
         let InputText = document.getElementById("InputText").value
@@ -60,18 +71,18 @@ class MatrixContainer extends React.Component {
             }
         }
         let retarr_length = retarr.length
-        let vectors = 3
-        let dimension = 3
+        // get vectors and dimension
+        let parse_matrix = JSON.parse(InputText)
+        let dimension = parse_matrix[0].length
         let newarr = []
-        for (var i = 0; i < vectors; ++i) {
+        for (var k = 0; k < dimension; ++k) {
             let subarr = []
-            for (var j = i; j < retarr_length; j += dimension) {
+            for (var j = k; j < retarr_length; j += dimension) {
                 subarr.push(retarr[j])
             }
             newarr.push(subarr)
         }
-        console.log("input text :" +
-        InputText,"length: "+length, retarr, newarr, retarr_length)
+        //console.log(newarr)
         // call ResetMatrix to add it
         this.ResetMatrix(newarr)
         }
@@ -86,13 +97,11 @@ class MatrixContainer extends React.Component {
             completed: true,
         }
         this.setState({
-            ...
-            this.MatricesDict.matrix_list = []
+            ...this.MatricesDict.matrix_list = []
             
         })
         this.setState({
-            ...
-            this.MatricesDict.matrix_list.push(new_matrix)
+            ...this.MatricesDict.matrix_list.push(new_matrix)
         })
     }
 
