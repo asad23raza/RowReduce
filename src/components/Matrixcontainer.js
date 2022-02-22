@@ -29,12 +29,27 @@ class MatrixContainer extends React.Component {
         })
     }
     CheckArr = (arr) => {
-
-    }
+        // make sure array only includes numbers, commas, and square brackets
+        // array vectors are all equal
+        // array length is greater than 2, [[1]]
+        let len = arr.length
+        if (len < 5) {
+            console.log("error 1")
+            return false
+        }         
+        let acceptable_chars = ["0","1","2","3","4","5","6","7","8","9", "]","[",","]
+        for (var i = 0; i < len; ++i) {
+            if (!acceptable_chars.includes(arr[i])) {
+                console.log("error 2: "+arr[i])
+                return false
+            }
+        }
+        return true
+    };
     AddMatrix = () => {
         //console.log("add button pressed")
         let InputText = document.getElementById("InputText").value
-        //console.log(InputText)
+        if(this.CheckArr(InputText)) {
         let retarr = []
         let length = InputText.length
         let acceptable_chars = ["0","1","2","3","4","5","6","7","8","9", "]","[",","]
@@ -59,6 +74,10 @@ class MatrixContainer extends React.Component {
         InputText,"length: "+length, retarr, newarr, retarr_length)
         // call ResetMatrix to add it
         this.ResetMatrix(newarr)
+        }
+        else {
+            console.log("please enter a valid matrix")
+        }
     }
     ResetMatrix = (matrix) => {
         var new_matrix = {
@@ -89,4 +108,6 @@ class MatrixContainer extends React.Component {
     }
 }
 export default MatrixContainer
+
+
 
