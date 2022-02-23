@@ -20,7 +20,6 @@ class MatrixContainer extends React.Component {
         ]
     };
     DelMatrix = () => {
-        console.log("deleted " + this.MatricesDict.matrix_list.length)
         this.setState({
             ...this.MatricesDict.matrix_list.pop()
         })
@@ -83,7 +82,8 @@ class MatrixContainer extends React.Component {
         }
         // When an Invalid Matrix is Entered
         else {
-            console.log("please enter a valid matrix")
+            //console.log("please enter a valid matrix")
+            this.ErrorMatrix()
             return false
         }
     };
@@ -100,11 +100,15 @@ class MatrixContainer extends React.Component {
             ...this.MatricesDict.matrix_list.push(new_matrix)
         })
     }
+    ErrorMatrix = () => {
+        document.getElementById("InvalidInput").innerHTML = "Please Enter a Valid Matrix. See"
+    }
     render() {
         return (
             <div>
                 <Header />
                 <TextField add_function={this.AddMatrix} />
+                <div id="InvalidInput"></div>
                 <MatrixList matrix_list={this.MatricesDict.matrix_list}
                 DelMatrix = {this.DelMatrix} />
             </div>

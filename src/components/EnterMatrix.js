@@ -16,7 +16,6 @@ class TextField extends React.Component {
             onChange={this.onChange} /*onKeyPress={this.EntryFilter}*/ />
             <button onClick={() => this.props.add_function()}>Row Reduce</button>
             </span>
-            {/* Enter Error Matrix here */}
         </div>
         )
         
