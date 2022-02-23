@@ -8,18 +8,6 @@ class TextField extends React.Component {
             matrix: e.target.value
         });
     };
-    // EntryFilter = (e) => {
-    //     let val = e.charCode
-    //     if ((val >= 48 && val <= 57) ||
-    //         (val === 93 || val === 91 || val === 44)) {
-    //         console.log("acceptable number")
-    //         return true
-    //     }
-    //     else {
-    //         console.log("not acceptable")
-    //         return false
-    //     }
-    // }
     render () {
         return (
         <div>
@@ -28,6 +16,7 @@ class TextField extends React.Component {
             onChange={this.onChange} /*onKeyPress={this.EntryFilter}*/ />
             <button onClick={() => this.props.add_function()}>Row Reduce</button>
             </span>
+            {/* Enter Error Matrix here */}
         </div>
         )
         
