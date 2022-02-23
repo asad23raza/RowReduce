@@ -6,7 +6,6 @@ class MatrixList extends React.Component {
         // returns the length of matrix_list which is the 
         // index of the last matrix
         var max = this.props.matrix_list.length
-        console.log("matrix length " + max)
         return (
             <div>
             {this.props.matrix_list.map(

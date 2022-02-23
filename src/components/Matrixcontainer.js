@@ -8,17 +8,14 @@ class MatrixContainer extends React.Component {
             {
                 id: 1,
                 matrix: [[1,35,1],[0,1,0],[0,0,1]],
-                completed: true
             },
             {
                 id: 2,
                 matrix: [[4,55,6],[4,5,6],[4,5,6]],
-                completed: true
             },
             {
                 id: 3,
                 matrix: [[0,32,1],[0,1,0],[1,0,0]],
-                completed: false
             }
         ]
     };
@@ -71,7 +68,6 @@ class MatrixContainer extends React.Component {
             }
         }
         let retarr_length = retarr.length
-        // get vectors and dimension
         let parse_matrix = JSON.parse(InputText)
         let dimension = parse_matrix[0].length
         let newarr = []
@@ -82,19 +78,19 @@ class MatrixContainer extends React.Component {
             }
             newarr.push(subarr)
         }
-        //console.log(newarr)
-        // call ResetMatrix to add it
         this.ResetMatrix(newarr)
+        return true
         }
+        // When an Invalid Matrix is Entered
         else {
             console.log("please enter a valid matrix")
+            return false
         }
-    }
+    };
     ResetMatrix = (matrix) => {
         var new_matrix = {
             id: this.MatricesDict.matrix_list.length + 1,
             matrix: matrix,
-            completed: true,
         }
         this.setState({
             ...this.MatricesDict.matrix_list = []
@@ -104,7 +100,6 @@ class MatrixContainer extends React.Component {
             ...this.MatricesDict.matrix_list.push(new_matrix)
         })
     }
-
     render() {
         return (
             <div>
