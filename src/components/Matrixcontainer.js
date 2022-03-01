@@ -89,7 +89,7 @@ class MatrixContainer extends React.Component {
     };
     ResetMatrix = (matrix) => {
         var new_matrix = {
-            id: this.MatricesDict.matrix_list.length + 1,
+            id: 1,
             matrix: matrix,
         }
         this.setState({
