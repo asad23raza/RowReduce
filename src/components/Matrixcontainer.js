@@ -56,6 +56,7 @@ class MatrixContainer extends React.Component {
     AddMatrix = () => {
         //console.log("add button pressed")
         let InputText = document.getElementById("InputText").value
+        console.log("Input:" + InputText)
         if(this.CheckArr(InputText)) {
         let retarr = []
         let length = InputText.length
@@ -66,23 +67,23 @@ class MatrixContainer extends React.Component {
                 retarr.push(parseInt(InputText[i]));
             }
         }
-        let retarr_length = retarr.length
         let parse_matrix = JSON.parse(InputText)
+        console.log(parse_matrix)
         let dimension = parse_matrix[0].length
         let newarr = []
         for (var k = 0; k < dimension; ++k) {
             let subarr = []
-            for (var j = k; j < retarr_length; j += dimension) {
-                subarr.push(retarr[j])
+            for (var j = 0; j < parse_matrix.length; ++j) {
+                subarr.push(parse_matrix[j][k])
             }
             newarr.push(subarr)
         }
+        document.getElementById("InvalidInput").innerHTML = "";
+        console.log(newarr)
         this.ResetMatrix(newarr)
         return true
         }
-        // When an Invalid Matrix is Entered
         else {
-            //console.log("please enter a valid matrix")
             this.ErrorMatrix()
             return false
         }
